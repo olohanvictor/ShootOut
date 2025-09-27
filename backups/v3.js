@@ -1,3 +1,22 @@
+//Classes 
+class Jogador {
+  constructor(nome, time, chu, dri) {
+    this.nome = nome;
+    this.time = time;
+    this.chu = chu;
+    this.dri = dri;
+  }
+}
+
+class Goleiro {
+  constructor(nome, time, sai, ela) {
+    this.nome = nome;
+    this.time = time;
+    this.sai = sai;
+    this.ela = ela;
+  }
+}
+
 //Funções e utilidades em geral
 function randNum(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -15,6 +34,7 @@ function provavel() {
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
+
 
 function chute(Jogador, Goleiro) {
   const sucesso = provavel() <= (Jogador.chu / (Jogador.chu + Goleiro.ela))
@@ -112,4 +132,20 @@ function cII(Jogador, Goleiro, ChuteMedio, Duelo, ChuteQueima){
   }
 }
 
-module.exports = { randNum, escolheRandVetor, provavel, cI, cII, sleep, chute, chuteMedio, chuteQueima, duelo };
+//Aq é onde os betas nao tem vez
+const Pedro = new Jogador("Pedro", "Vermelhos", 85, 90);
+const Lucas = new Goleiro("Lucas", "Azuis", 80, 88);
+
+//Eu ODEIO Node.
+function shootout(){
+  console.log("Inicio Loop=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+  cI(Pedro, Lucas, chute);
+  console.log("Transição de caso=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+  cII(Pedro, Lucas, chuteMedio, duelo, chuteQueima)
+  console.log("Fim Loop=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+}
+
+
+shootout();
+
+
