@@ -12,10 +12,6 @@ function provavel() {
   return Math.random();
 }
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms))
-}
-
 function chute(Jogador, Goleiro) {
   const sucesso = provavel() <= (Jogador.chu / (Jogador.chu + Goleiro.ela))
   return sucesso;
@@ -50,7 +46,7 @@ async function cI(Jogador, Goleiro, ConfrontoDist) {
 
   const goleiroPegou = [
     "voa FIRME na bola o ",
-    "saída SEGURA do ",
+    "defesa SEGURA do ",
     "GRANDE DEFESA do "
   ];
 
